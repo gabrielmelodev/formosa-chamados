@@ -1,0 +1,56 @@
+{
+  "name": "formosa-chamados",
+  "version": "1.0.0",
+  "description": "Aplicativo Windows para acesso ao Sistema de Chamados da Prefeitura de Formosa",
+  "main": "dist/main/main.js",
+  "author": "Prefeitura Municipal de Formosa",
+  "private": true,
+  "scripts": {
+    "dev": "tsc && electronmon .",
+    "build": "tsc",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder",
+    "release": "npm run build && electron-builder --publish always"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "electron": "^37.0.0",
+    "electron-builder": "^26.15.3",
+    "electronmon": "^2.0.4",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
+  },
+  "build": {
+    "appId": "br.gov.formosa.chamados",
+    "productName": "Formosa Chamados",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "src/toolbar/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "Formosa-Chamados-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Formosa Chamados",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "gabrielmelodev",
+      "repo": "formosa-chamados",
+      "releaseType": "release"
+    }
+  }
+}

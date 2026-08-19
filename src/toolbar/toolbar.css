@@ -1,0 +1,982 @@
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden !important;
+
+  scrollbar-width: none;
+
+  font-family:
+    "Segoe UI Variable",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  font-size: 14px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+
+  color-scheme: light;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden !important;
+
+  scrollbar-width: none;
+
+  background: var(--site-bg);
+  color: var(--site-text);
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden !important;
+
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* ============================================================
+   TEMA
+   ============================================================ */
+
+:root {
+  --site-bg: #ffffff;
+  --site-text: #111827;
+
+  --site-muted: rgba(17, 24, 39, 0.6);
+  --site-border: rgba(17, 24, 39, 0.12);
+
+  --site-hover: rgba(17, 24, 39, 0.07);
+  --site-active: rgba(17, 24, 39, 0.11);
+
+  --search-bg: rgba(127, 127, 127, 0.1);
+  --search-bg-hover: rgba(127, 127, 127, 0.14);
+  --search-bg-focus: rgba(127, 127, 127, 0.13);
+
+  --search-border: rgba(127, 127, 127, 0.2);
+  --search-border-hover: rgba(127, 127, 127, 0.28);
+
+  --focus-color: rgba(70, 110, 180, 0.55);
+  --focus-ring: rgba(70, 110, 180, 0.1);
+
+  --success-color: #16a34a;
+  --danger-color: #dc2626;
+  --warning-color: #d97706;
+
+  --window-close-hover: #c42b1c;
+  --window-close-active: #a5261a;
+
+  --titlebar-height: 52px;
+  --toolbar-button-size: 34px;
+  --window-button-width: 46px;
+
+  --brand-width: auto;
+  --search-min-width: 180px;
+}
+
+/* ============================================================
+   TITLE BAR
+   ============================================================ */
+
+.titlebar {
+  position: relative;
+
+  width: 100%;
+  height: var(--titlebar-height);
+
+  min-width: 0;
+  min-height: var(--titlebar-height);
+  max-height: var(--titlebar-height);
+
+  flex: 0 0 var(--titlebar-height);
+
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: var(--site-bg);
+  color: var(--site-text);
+
+  border: 0;
+  border-bottom: 1px solid var(--site-border);
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-app-region: drag;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+/* ============================================================
+   MARCA
+   ============================================================ */
+
+.brand {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding-left: 14px;
+  padding-right: 10px;
+
+  flex: 0 1 auto;
+
+  min-width: 0;
+  max-width: 240px;
+
+  color: var(--site-text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-app-region: drag;
+
+  overflow: hidden;
+
+  transition: color 160ms ease;
+}
+
+/* ============================================================
+   ÍCONE DA MARCA
+   ============================================================ */
+
+.brand-icon {
+  width: 27px;
+  height: 27px;
+
+  min-width: 27px;
+  min-height: 27px;
+
+  flex: 0 0 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 6px;
+
+  background: var(--site-text);
+  color: var(--site-bg);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+/* ============================================================
+   IMAGEM DA MARCA
+   ============================================================ */
+
+.brand-icon img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ============================================================
+   NOME DA MARCA
+   ============================================================ */
+
+.brand-name {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+/* ============================================================
+   PESQUISA
+   ============================================================ */
+
+.ticket-search {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 360px;
+  height: 34px;
+
+  min-width: var(--search-min-width);
+  min-height: 34px;
+  max-height: 34px;
+
+  margin-left: 14px;
+  margin-right: 10px;
+
+  flex: 0 1 360px;
+
+  overflow: hidden;
+
+  -webkit-app-region: no-drag;
+}
+
+/* ============================================================
+   ÍCONE DE PESQUISA
+   ============================================================ */
+
+.ticket-search .search-icon {
+  position: absolute;
+
+  left: 11px;
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  margin: 0;
+
+  transform: translateY(-50%);
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0.55;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* ============================================================
+   INPUT
+   ============================================================ */
+
+#ticket-search-input {
+  display: block;
+
+  width: 100%;
+  height: 34px;
+
+  min-width: 0;
+  min-height: 34px;
+  max-height: 34px;
+
+  margin: 0;
+
+  padding: 0 38px 0 34px;
+
+  border: 1px solid var(--search-border);
+  border-radius: 8px;
+
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: var(--search-bg);
+  color: var(--site-text);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: normal;
+
+  caret-color: currentColor;
+
+  box-shadow: none;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+/* ============================================================
+   PLACEHOLDER
+   ============================================================ */
+
+#ticket-search-input::placeholder {
+  color: currentColor;
+  opacity: 0.48;
+}
+
+/* ============================================================
+   HOVER
+   ============================================================ */
+
+#ticket-search-input:hover {
+  background: var(--search-bg-hover);
+
+  border-color: var(--search-border-hover);
+}
+
+/* ============================================================
+   FOCO
+   ============================================================ */
+
+#ticket-search-input:focus {
+  background: var(--search-bg-focus);
+
+  border-color: var(--focus-color);
+
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+/* ============================================================
+   REMOVE X NATIVO
+   ============================================================ */
+
+#ticket-search-input::-webkit-search-cancel-button,
+#ticket-search-input::-webkit-search-decoration {
+  display: none;
+
+  width: 0;
+  height: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ============================================================
+   BOTÃO LIMPAR
+   ============================================================ */
+
+.ticket-search-clear {
+  position: absolute;
+
+  right: 6px;
+  top: 50%;
+
+  width: 24px;
+  height: 24px;
+
+  min-width: 24px;
+  min-height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  transform: translateY(-50%);
+
+  border: 0;
+  border-radius: 5px;
+
+  outline: none;
+
+  background: transparent;
+  color: currentColor;
+
+  cursor: pointer;
+
+  opacity: 0.55;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-app-region: no-drag;
+
+  z-index: 3;
+
+  transition:
+    background-color 100ms ease,
+    opacity 100ms ease,
+    transform 100ms ease;
+}
+
+.ticket-search-clear:hover {
+  background: rgba(127, 127, 127, 0.15);
+  opacity: 0.9;
+}
+
+.ticket-search-clear:active {
+  background: rgba(127, 127, 127, 0.22);
+
+  opacity: 1;
+
+  transform: translateY(-50%) scale(0.94);
+}
+
+.ticket-search-clear:focus-visible {
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+.ticket-search-clear svg {
+  width: 14px;
+  height: 14px;
+
+  min-width: 14px;
+  min-height: 14px;
+
+  flex: 0 0 14px;
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  pointer-events: none;
+}
+
+.ticket-search-clear[hidden] {
+  display: none !important;
+}
+
+/* ============================================================
+   NAVEGAÇÃO
+   ============================================================ */
+
+.navigation {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 1px;
+
+  flex: 0 0 auto;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  -webkit-app-region: no-drag;
+}
+
+/* ============================================================
+   BOTÕES TOOLBAR
+   ============================================================ */
+
+.toolbar-button {
+  width: var(--toolbar-button-size);
+  height: var(--toolbar-button-size);
+
+  min-width: var(--toolbar-button-size);
+  min-height: var(--toolbar-button-size);
+  max-height: var(--toolbar-button-size);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 var(--toolbar-button-size);
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  border-radius: 6px;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--site-text);
+
+  opacity: 0.72;
+
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-app-region: no-drag;
+
+  transition:
+    background-color 100ms ease,
+    color 160ms ease,
+    opacity 100ms ease,
+    transform 80ms ease;
+}
+
+.toolbar-button:hover:not(:disabled) {
+  background: var(--site-hover);
+  opacity: 1;
+}
+
+.toolbar-button:active:not(:disabled) {
+  background: var(--site-active);
+
+  opacity: 1;
+
+  transform: translateY(1px);
+}
+
+.toolbar-button:disabled {
+  opacity: 0.3;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+.toolbar-button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus-ring);
+}
+
+.toolbar-button svg {
+  width: 17px;
+  height: 17px;
+
+  min-width: 17px;
+  min-height: 17px;
+
+  flex: 0 0 17px;
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   ÁREA ARRASTÁVEL
+   ============================================================ */
+
+.drag-area {
+  height: 100%;
+
+  min-width: 20px;
+  min-height: 0;
+
+  flex: 1 1 auto;
+
+  overflow: hidden;
+
+  -webkit-app-region: drag;
+}
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.connection {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding-left: 12px;
+  padding-right: 12px;
+
+  flex: 0 0 auto;
+
+  min-width: 0;
+
+  color: var(--site-text);
+
+  opacity: 0.65;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  -webkit-app-region: no-drag;
+
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+/* ============================================================
+   STATUS DOT
+   ============================================================ */
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  min-width: 7px;
+  min-height: 7px;
+
+  flex: 0 0 7px;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.status-dot.online {
+  background: var(--success-color);
+}
+
+.status-dot.offline {
+  background: var(--danger-color);
+}
+
+.status-dot.loading {
+  background: var(--warning-color);
+
+  animation: status-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(0.88);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================================
+   CONTROLES DA JANELA
+   ============================================================ */
+
+.window-controls {
+  height: 100%;
+
+  display: flex;
+  align-items: stretch;
+
+  flex: 0 0 auto;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  -webkit-app-region: no-drag;
+}
+
+/* ============================================================
+   BOTÕES DA JANELA
+   ============================================================ */
+
+.window-button {
+  width: var(--window-button-width);
+  height: var(--titlebar-height);
+
+  min-width: var(--window-button-width);
+  min-height: var(--titlebar-height);
+  max-height: var(--titlebar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 var(--window-button-width);
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--site-text);
+
+  opacity: 0.72;
+
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-app-region: no-drag;
+
+  transition:
+    background-color 100ms ease,
+    color 160ms ease,
+    opacity 100ms ease;
+}
+
+.window-button:hover {
+  background: var(--site-hover);
+  opacity: 1;
+}
+
+.window-button:active {
+  background: var(--site-active);
+  opacity: 1;
+}
+
+.window-button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus-ring);
+}
+
+.window-button svg {
+  width: 15px;
+  height: 15px;
+
+  min-width: 15px;
+  min-height: 15px;
+
+  flex: 0 0 15px;
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.5;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   BOTÃO FECHAR
+   ============================================================ */
+
+.window-button.close:hover {
+  background: var(--window-close-hover);
+
+  color: #ffffff;
+
+  opacity: 1;
+}
+
+.window-button.close:active {
+  background: var(--window-close-active);
+
+  color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVO — 1200PX
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .ticket-search {
+    width: 300px;
+    flex-basis: 300px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVO — 1100PX
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .brand {
+    max-width: 200px;
+  }
+
+  .ticket-search {
+    width: 250px;
+    flex-basis: 250px;
+
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .connection {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVO — 1000PX
+   ============================================================ */
+
+@media (max-width: 1000px) {
+  .brand {
+    max-width: 180px;
+
+    padding-left: 10px;
+    padding-right: 7px;
+  }
+
+  .ticket-search {
+    width: 210px;
+    flex-basis: 210px;
+
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+  .connection {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  #status-text {
+    display: none;
+  }
+}
+
+/* ============================================================
+   ACESSIBILIDADE
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   GARANTIA ABSOLUTA DE SEM SCROLL GLOBAL
+   ============================================================ */
+
+html,
+body,
+#root {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+
+/* ============================================================
+   ELEMENTOS DA TITLEBAR NÃO PODEM CRIAR OVERFLOW
+   ============================================================ */
+
+.titlebar,
+.brand,
+.ticket-search,
+.navigation,
+.drag-area,
+.connection,
+.window-controls {
+  min-height: 0;
+}
+
+/* ============================================================
+   TRANSIÇÕES DO TEMA
+   ============================================================ */
+
+.titlebar,
+.brand,
+.brand-icon,
+.toolbar-button,
+.connection,
+.window-button,
+#ticket-search-input {
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}

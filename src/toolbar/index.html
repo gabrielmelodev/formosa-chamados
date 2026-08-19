@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="theme-color" content="#f3f3f3" />
+
+  <meta name="color-scheme" content="light dark" />
+
+  <title>Formosa Chamados</title>
+
+  <link rel="stylesheet" href="./toolbar.css" />
+</head>
+
+<body>
+
+  <header id="titlebar" class="titlebar" role="toolbar" aria-label="Formosa Chamados">
+
+    <!-- =====================================================
+         IDENTIDADE
+         ===================================================== -->
+
+    <div class="brand" aria-label="Formosa Chamados" title="Formosa Chamados">
+
+      <div class="brand-icon" aria-hidden="true">
+        <img src="./assets/favicon.ico" alt="" draggable="false" width="32" height="32" />
+      </div>
+
+      <span class="brand-name">
+        Formosa Chamados
+      </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO
+         ===================================================== -->
+
+    <nav class="navigation" aria-label="Navegação">
+
+      <!-- VOLTAR -->
+
+      <button id="back" class="toolbar-button" type="button" aria-label="Voltar" title="Voltar" disabled>
+
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M15 18l-6-6 6-6" />
+
+        </svg>
+
+      </button>
+
+
+      <!-- AVANÇAR -->
+
+      <button id="forward" class="toolbar-button" type="button" aria-label="Avançar" title="Avançar" disabled>
+
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M9 18l6-6-6-6" />
+
+        </svg>
+
+      </button>
+
+
+      <!-- RECARREGAR -->
+
+      <button id="reload" class="toolbar-button" type="button" aria-label="Recarregar" title="Recarregar">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M20 11a8.1 8.1 0 0 0-15.5-2" />
+
+          <path d="M4 5v4h4" />
+
+          <path d="M4 13a8.1 8.1 0 0 0 15.5 2" />
+
+          <path d="M20 19v-4h-4" />
+
+        </svg>
+
+      </button>
+
+    </nav>
+
+
+    <!-- =====================================================
+         ÁREA CENTRAL ARRASTÁVEL
+         ===================================================== -->
+
+    <div class="drag-area" aria-hidden="true"></div>
+
+
+    <!-- =====================================================
+         NOTIFICAÇÕES
+         ===================================================== -->
+
+    <div id="ticket-notifications" class="ticket-notifications">
+
+      <button id="notifications" class="toolbar-button notification-button" type="button" aria-label="Notificações"
+        title="Chamados pendentes" aria-describedby="ticket-badge">
+
+        <svg class="notification-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+
+          <path d="M10 21h4" />
+
+        </svg>
+
+
+        <span id="ticket-badge" class="ticket-badge hidden" aria-hidden="true">
+          0
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         STATUS
+         ===================================================== -->
+
+    <div id="connection" class="connection" role="status" aria-live="polite" aria-atomic="true"
+      title="Status do sistema">
+
+      <span id="status-dot" class="status-dot loading" aria-hidden="true"></span>
+
+      <span id="status-text">
+        Carregando...
+      </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTROLES WINDOWS
+         ===================================================== -->
+
+    <div class="window-controls" role="group" aria-label="Controles da janela">
+
+      <!-- MINIMIZAR -->
+
+      <button id="minimize" class="window-button" type="button" aria-label="Minimizar" title="Minimizar">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M5 12h14" />
+
+        </svg>
+
+      </button>
+
+
+      <!-- MAXIMIZAR -->
+
+      <button id="maximize" class="window-button" type="button" aria-label="Maximizar" title="Maximizar">
+
+        <svg id="maximize-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <rect x="5" y="5" width="14" height="14" rx="1" />
+
+        </svg>
+
+      </button>
+
+
+      <!-- FECHAR -->
+
+      <button id="close" class="window-button close" type="button" aria-label="Fechar" title="Fechar">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+          <path d="M6 6l12 12" />
+
+          <path d="M18 6L6 18" />
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       SCRIPT DA TOOLBAR
+       ======================================================= -->
+
+  <script src="./toolbar.js"></script>
+
+</body>
+
+</html>
